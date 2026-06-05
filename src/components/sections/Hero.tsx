@@ -1,14 +1,25 @@
 import { ArrowRight, Mail } from "lucide-react";
+import { FaJava } from "react-icons/fa";
+import {
+  SiSpringboot,
+  SiDocker,
+  SiKubernetes,
+  SiLaravel,
+  SiDjango,
+  SiPostgresql,
+  SiKeycloak,
+} from "react-icons/si";
+import type { IconType } from "react-icons";
 
-const badges = [
-  { name: "Java", className: "top-[10%] left-[8%]" },
-  { name: "Spring Boot", className: "top-[18%] right-[10%]" },
-  { name: "Docker", className: "top-[42%] left-[4%]" },
-  { name: "Kubernetes", className: "top-[55%] right-[6%]" },
-  { name: "Laravel", className: "bottom-[20%] left-[12%]" },
-  { name: "Django", className: "bottom-[12%] right-[14%]" },
-  { name: "PostgreSQL", className: "top-[30%] left-[18%]" },
-  { name: "Keycloak", className: "bottom-[34%] right-[20%]" },
+const badges: { name: string; className: string; Icon: IconType; color: string }[] = [
+  { name: "Java", className: "top-[10%] left-[8%]", Icon: FaJava, color: "#f89820" },
+  { name: "Spring Boot", className: "top-[18%] right-[10%]", Icon: SiSpringboot, color: "#6db33f" },
+  { name: "Docker", className: "top-[42%] left-[4%]", Icon: SiDocker, color: "#2496ed" },
+  { name: "Kubernetes", className: "top-[55%] right-[6%]", Icon: SiKubernetes, color: "#326ce5" },
+  { name: "Laravel", className: "bottom-[20%] left-[12%]", Icon: SiLaravel, color: "#ff2d20" },
+  { name: "Django", className: "bottom-[12%] right-[14%]", Icon: SiDjango, color: "#44b78b" },
+  { name: "PostgreSQL", className: "top-[30%] left-[18%]", Icon: SiPostgresql, color: "#4169e1" },
+  { name: "Keycloak", className: "bottom-[34%] right-[20%]", Icon: SiKeycloak, color: "#4d9cba" },
 ];
 
 export function Hero() {
@@ -27,8 +38,11 @@ export function Hero() {
             className={`absolute ${b.className} animate-float`}
             style={{ animationDelay: `${i * 0.4}s`, animationDuration: `${5 + (i % 3)}s` }}
           >
-            <div className="px-4 py-2 rounded-full border border-border bg-card/60 backdrop-blur-md text-xs font-medium text-muted-foreground hover:text-foreground hover:border-primary/40 transition-all">
-              {b.name}
+            <div className="flex flex-col items-center gap-1.5 px-4 py-3 rounded-2xl border border-border bg-card/60 backdrop-blur-md hover:border-primary/40 transition-all group">
+              <b.Icon size={28} style={{ color: b.color }} className="group-hover:scale-110 transition-transform" />
+              <span className="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors leading-none">
+                {b.name}
+              </span>
             </div>
           </div>
         ))}
