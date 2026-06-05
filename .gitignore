@@ -29,6 +29,9 @@ pnpm-lock.yaml
 .env.*
 !.env.example
 
+# Vercel
+.vercel
+
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
